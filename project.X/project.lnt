@@ -1,0 +1,25 @@
+
+// Include the compiler's lnt options.
+"C:\lint\lnt\co-xc8.lnt"
+
+// Include MISRA Requirements
+//"C:\lint\lnt\au-misra1.lnt"     // 1998
+"C:\lint\lnt\au-misra2.lnt"     // 2004
+//"C:\lint\lnt\au-misra3.lnt"     // 2012
+
+// Project Location Includes
+-i"C:\0_svn\hmid\MTCH10x\source\"
+
+// Compiler Includes - specific to compiler version
+-i"C:\Program Files (x86)\Microchip\xc8\v1.33\include"
+
+// Project Specific Predefined Values
+-d_12LF1552
+
+-e9029              // Bug in PC Lint version K. Removing this check until it's fixed.
+-elib(961)          // Ignore MISRA-C "could define variable at block scope" errors for library-defined labels
++libclass(angle)    // Includes with <>'s are library files. Others are user header files.
+
+-elib(961,22)
+
+//-vf                 // Explicit header include information in LINT output
