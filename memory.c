@@ -335,9 +335,10 @@ void MEMORY_Write(uint8_t addr, uint8_t value)
 
         /* Sensor Thresholds */
         case 0x40:  if ((int8_t)value < 0) { value = 0; }
-                    MTOUCH_button_threshold[0] = value;     break;
+                    MTOUCH_proximity_threshold = value;     break;
+                    
         case 0x41:  if ((int8_t)value < 0) { value = 0; }
-                    MTOUCH_button_threshold[1] = value;     break;
+                    MTOUCH_button_threshold[0] = value;     break;
         case 0x42:  if ((int8_t)value < 0) { value = 0; }
                     MTOUCH_button_threshold[2] = value;     break;
         case 0x43:  if ((int8_t)value < 0) { value = 0; }
@@ -359,7 +360,7 @@ void MEMORY_Write(uint8_t addr, uint8_t value)
         case 0x70:  CalibrateSensors(value);                break;
 
         /* Sensor Delta Scaling */
-        case 0x80:  MTOUCH_delta_scaling[0] = value;        break;
+        case 0x80:  MTOUCH_proximity_scaling = value;        break;
         case 0x81:  MTOUCH_delta_scaling[1] = value;        break;
         case 0x82:  MTOUCH_delta_scaling[2] = value;        break;
         case 0x83:  MTOUCH_delta_scaling[3] = value;        break;
